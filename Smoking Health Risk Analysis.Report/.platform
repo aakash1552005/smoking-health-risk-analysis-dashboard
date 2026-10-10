@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Smoking Health Risk Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f16b1ecf-5de7-4fb9-b2dc-f70031fd6225"
+  }
+}

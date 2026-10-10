@@ -1,0 +1,329 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"health_dataset\",\"condition\",\"Organ\",\"Image Datasets\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "Organ_to_health_dataset",
+        "fromColumn": "Organ",
+        "fromTable": "health_dataset",
+        "toColumn": "Organ",
+        "toTable": "Organ"
+      },
+      {
+        "name": "Organ_to_Image_Datasets",
+        "fromColumn": "Organ",
+        "fromTable": "Image Datasets",
+        "toColumn": "Organ",
+        "toTable": "Organ"
+      },
+      {
+        "name": "condition_to_Image_Datasets",
+        "fromColumn": "Organ_Condition",
+        "fromTable": "Image Datasets",
+        "toColumn": "Organ_Condition",
+        "toTable": "condition"
+      },
+      {
+        "name": "condition_to_health_dataset",
+        "fromColumn": "Organ_Condition",
+        "fromTable": "health_dataset",
+        "toColumn": "Organ_Condition",
+        "toTable": "condition"
+      }
+    ],
+    "sourceQueryCulture": "en-IN",
+    "tables": [
+      {
+        "name": "health_dataset",
+        "columns": [
+          {
+            "name": "Patient_ID",
+            "dataType": "int64",
+            "lineageTag": "d931f592-65f6-4d04-aa16-99de14bc0ba1",
+            "sourceColumn": "Patient_ID",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Age",
+            "dataType": "int64",
+            "lineageTag": "6e067469-907a-44ca-ae5a-eff608953db7",
+            "sourceColumn": "Age",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "lineageTag": "2a5425f4-2d65-4a5d-9589-b423bf4d1c8a",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "Smoking_Status",
+            "dataType": "string",
+            "lineageTag": "90e1ae64-a6c7-484b-ac55-bdb71374a32b",
+            "sourceColumn": "Smoking_Status"
+          },
+          {
+            "name": "Years_of_Smoking",
+            "dataType": "int64",
+            "lineageTag": "ba9fc26f-13cd-4bdf-b087-624d09712efa",
+            "sourceColumn": "Years_of_Smoking",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Cigarettes_Per_Day",
+            "dataType": "int64",
+            "lineageTag": "9e353e6c-64b6-406e-8311-740000d57402",
+            "sourceColumn": "Cigarettes_Per_Day",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Organ",
+            "dataType": "string",
+            "lineageTag": "f6b09f87-58aa-4df4-9727-5634f582ac06",
+            "sourceColumn": "Organ"
+          },
+          {
+            "name": "Organ_Condition",
+            "dataType": "string",
+            "lineageTag": "bf5e4a37-0c90-42ab-a747-02d2c4906e84",
+            "sourceColumn": "Organ_Condition"
+          },
+          {
+            "name": "BMI",
+            "dataType": "double",
+            "lineageTag": "2427a6d7-9534-4943-af8f-6e8f4decf30a",
+            "sourceColumn": "BMI",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "BP_Risk",
+            "dataType": "string",
+            "lineageTag": "1fd55e4b-f7f7-4807-8217-20b543c3d876",
+            "sourceColumn": "BP_Risk"
+          },
+          {
+            "name": "Cholesterol_Level",
+            "dataType": "double",
+            "lineageTag": "73cca944-19cd-428c-825c-65531b2b2b69",
+            "sourceColumn": "Cholesterol_Level",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Family_History_Risk",
+            "dataType": "string",
+            "lineageTag": "775c95c7-5d1d-459b-a374-bf4c74658488",
+            "sourceColumn": "Family_History_Risk"
+          },
+          {
+            "name": "Alcohol_Consumption",
+            "dataType": "string",
+            "lineageTag": "f3143c95-426f-4187-9bd7-b86cf6769191",
+            "sourceColumn": "Alcohol_Consumption"
+          },
+          {
+            "name": "Age Group",
+            "dataType": "string",
+            "expression": "SWITCH(TRUE(), health_dataset[Age] <= 28, \"18–28\", health_dataset[Age] <= 38, \"29–38\", health_dataset[Age] <= 48, \"39–48\", health_dataset[Age] <= 58, \"49–58\", health_dataset[Age] <= 68, \"59–68\", \"69+\")",
+            "isDataTypeInferred": true,
+            "lineageTag": "f89d3fff-4ed6-47bd-bbea-9e94f5d3365b",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "4158e020-c607-4e42-848c-641c489d907c",
+        "measures": [
+          {
+            "name": "vs Avg Age",
+            "expression": [
+              "VAR _CurrentAge = AVERAGE(health_dataset[Age])",
+              "VAR _OverallAge = CALCULATE(AVERAGE(health_dataset[Age]), ALL(health_dataset))",
+              "VAR _Diff = _CurrentAge - _OverallAge",
+              "RETURN",
+              "SWITCH(",
+              "    TRUE(),",
+              "    _Diff > 0, UNICHAR(9650) & \" \" & FORMAT(_CurrentAge, \"0.0\"),",
+              "    _Diff < 0, UNICHAR(9660) & \" \" & FORMAT(_CurrentAge, \"0.0\"),",
+              "    FORMAT(_CurrentAge, \"0.0\")",
+              ")"
+            ],
+            "lineageTag": "0417809b-7251-4684-9477-f9f8477b00d7"
+          },
+          {
+            "name": "vs Avg BMI",
+            "expression": [
+              "VAR _CurrentBMI = AVERAGE(health_dataset[BMI])",
+              "VAR _OverallBMI = CALCULATE(AVERAGE(health_dataset[BMI]), ALL(health_dataset))",
+              "VAR _Diff = _CurrentBMI - _OverallBMI",
+              "RETURN",
+              "SWITCH(",
+              "    TRUE(),",
+              "    _Diff > 0, UNICHAR(9650) & \" \" & FORMAT(_CurrentBMI, \"0.0\"),",
+              "    _Diff < 0, UNICHAR(9660) & \" \" & FORMAT(_CurrentBMI, \"0.0\"),",
+              "    FORMAT(_CurrentBMI, \"0.0\")",
+              ")"
+            ],
+            "lineageTag": "42652eee-bf6f-4d15-aa5c-f2f2ef735111"
+          },
+          {
+            "name": "Total Patients",
+            "expression": "COUNTROWS(health_dataset)",
+            "lineageTag": "ede70e9b-7192-427a-863e-ca152b4e8861"
+          },
+          {
+            "name": "YOS",
+            "expression": "AVERAGE(health_dataset[Years_of_Smoking])",
+            "lineageTag": "a958738b-68ec-44c1-a195-7161a368c875"
+          },
+          {
+            "name": "CPD",
+            "expression": "AVERAGE(health_dataset[Cigarettes_Per_Day])",
+            "lineageTag": "3ab89887-6008-4ee0-8bb6-792d299ca532"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "health_dataset",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\AAKASH.S.S\\OneDrive\\Desktop\\Smoking Health Risk Analysis Dashboard\\health_dataset.csv\"),[Delimiter=\",\", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Patient_ID\", Int64.Type}, {\"Age\", Int64.Type}, {\"Gender\", type text}, {\"Smoking_Status\", type text}, {\"Years_of_Smoking\", Int64.Type}, {\"Cigarettes_Per_Day\", Int64.Type}, {\"Organ\", type text}, {\"Organ_Condition\", type text}, {\"BMI\", type number}, {\"BP_Risk\", type text}, {\"Cholesterol_Level\", type number}, {\"Family_History_Risk\", type text}, {\"Alcohol_Consumption\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "condition",
+        "columns": [
+          {
+            "name": "Organ_Condition",
+            "dataType": "string",
+            "lineageTag": "34c33269-8e37-4051-96ed-e910d1c43cb3",
+            "sourceColumn": "Organ_Condition"
+          }
+        ],
+        "lineageTag": "66ff7338-04a4-4fdf-92c3-99c40afd080d",
+        "partitions": [
+          {
+            "name": "condition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\AAKASH.S.S\\OneDrive\\Desktop\\Smoking Health Risk Analysis Dashboard\\condition.csv\"),[Delimiter=\",\", Columns=1, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Organ_Condition\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Organ",
+        "columns": [
+          {
+            "name": "Organ",
+            "dataType": "string",
+            "lineageTag": "30d4bd4c-5012-4ced-8bf9-6faae336f1dd",
+            "sourceColumn": "Organ"
+          },
+          {
+            "name": "Icon_URL",
+            "dataCategory": "ImageUrl",
+            "dataType": "string",
+            "lineageTag": "6c3ed49f-1b75-48c2-9467-31efd4905e30",
+            "sourceColumn": "Icon_URL"
+          }
+        ],
+        "lineageTag": "71a2577c-1b2e-4988-b671-925c58036280",
+        "partitions": [
+          {
+            "name": "Organ",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\AAKASH.S.S\\OneDrive\\Desktop\\Smoking Health Risk Analysis Dashboard\\Organ.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Extracted Text Before Delimiter\" = Table.TransformColumns(#\"Promoted Headers\", {{\"Icon_URL\", each Text.BeforeDelimiter(_, \"/view\"), type text}}),",
+                "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Extracted Text Before Delimiter\", {{\"Icon_URL\", each Text.AfterDelimiter(_, \"https://drive.google.com/file/d/\"), type text}}),",
+                "    #\"Added Prefix\" = Table.TransformColumns(#\"Extracted Text After Delimiter\", {{\"Icon_URL\", each \"https://lh3.googleusercontent.com/d/\" & _, type text}})",
+                "in",
+                "    #\"Added Prefix\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Image Datasets",
+        "columns": [
+          {
+            "name": "Organ",
+            "dataType": "string",
+            "lineageTag": "1d00fea8-4072-4f6d-bee5-90042cf50c30",
+            "sourceColumn": "Organ"
+          },
+          {
+            "name": "Organ_Condition",
+            "dataType": "string",
+            "lineageTag": "ed1d63ea-03f7-4a13-9eb4-93378860bed7",
+            "sourceColumn": "Organ_Condition"
+          },
+          {
+            "name": "Image URL",
+            "dataCategory": "ImageUrl",
+            "dataType": "string",
+            "lineageTag": "ba95cd83-692f-4b9b-8348-5c09170966a0",
+            "sourceColumn": "Image URL"
+          }
+        ],
+        "lineageTag": "ce8341e5-8cf8-4b2e-b051-58ce310986b8",
+        "partitions": [
+          {
+            "name": "Image Datasets",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\AAKASH.S.S\\OneDrive\\Desktop\\Smoking Health Risk Analysis Dashboard\\Image Datasets.csv\"),[Delimiter=\",\", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Extracted Text Before Delimiter\" = Table.TransformColumns(#\"Promoted Headers\", {{\"Image URL\", each Text.BeforeDelimiter(_, \"/view\"), type text}}),",
+                "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Extracted Text Before Delimiter\", {{\"Image URL\", each Text.AfterDelimiter(_, \"https://drive.google.com/file/d/\"), type text}}),",
+                "    #\"Added Prefix\" = Table.TransformColumns(#\"Extracted Text After Delimiter\", {{\"Image URL\", each \"https://lh3.googleusercontent.com/d/\" & _, type text}})",
+                "in",
+                "    #\"Added Prefix\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "config": "{\"version\":\"5.68\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"type\":2,\"version\":{\"visual\":\"1.8.91\",\"report\":\"2.0.91\",\"page\":\"1.3.91\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useEnhancedTooltips\":false},\"objects\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Background_Viz42649341394758633.png",
+            "path": "Background_Viz42649341394758633.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Background Viz.png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Background_Viz42649341394758633.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Normal'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}",
+      "displayName": "Smoking Health Risk Analysis",
+      "displayOption": 0,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection_SmokingAnalysis",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"207829d51adf68fdb99f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":52.87356321839081,\"y\":167.816091954023,\"z\":8000,\"width\":76,\"height\":369.3333333333333,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"Organ.Icon_URL\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"Organ\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Icon_URL\"},\"Name\":\"Organ.Icon_URL\",\"NativeReferenceName\":\"Icon_URL\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"layout\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"maxTiles\":{\"expr\":{\"Literal\":{\"Value\":\"5L\"}}}}}],\"overFlow\":[{\"properties\":{\"overFlowDirection\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"general\":[{\"properties\":{}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 369.33,
+          "width": 76.00,
+          "x": 52.87,
+          "y": 167.82,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"CholesterolHypertensionStackedColumn\",\"layouts\":[{\"id\":0,\"position\":{\"x\":870,\"y\":385,\"z\":7000,\"width\":338.75,\"height\":278.75,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"hundredPercentStackedColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"health_dataset.Age Group\",\"active\":true}],\"Series\":[{\"queryRef\":\"health_dataset.BP_Risk\"}],\"Y\":[{\"queryRef\":\"health_dataset.Cholesterol_Level\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"health_dataset\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Age Group\"},\"Name\":\"health_dataset.Age Group\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"BP_Risk\"},\"Name\":\"health_dataset.BP_Risk\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Cholesterol_Level\"}},\"Function\":1},\"Name\":\"health_dataset.Cholesterol_Level\",\"NativeReferenceName\":\"Cholesterol_Level\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Age Group\"}}},{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"BP_Risk\"}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 278.75,
+          "width": 338.75,
+          "x": 870.00,
+          "y": 385.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"ConditionSlicer\",\"layouts\":[{\"id\":0,\"position\":{\"x\":922.5,\"y\":25,\"z\":1000,\"width\":286.25,\"height\":75,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"condition.Organ_Condition\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"condition\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Organ_Condition\"},\"Name\":\"condition.Organ_Condition\"}]},\"objects\":{\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"condition\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Organ_Condition\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Healthy'\"}}]]}}}]}}}}],\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 75.00,
+          "width": 286.25,
+          "x": 922.50,
+          "y": 25.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"DynamicOrganImage\",\"layouts\":[{\"id\":0,\"position\":{\"x\":514.1176470588235,\"y\":88.23529411764706,\"z\":5000,\"width\":340,\"height\":585,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"image\":[{\"properties\":{\"sourceType\":{\"expr\":{\"Literal\":{\"Value\":\"'imageData'\"}}},\"sourceField\":{\"expr\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Image Datasets\"}},\"Property\":\"Image URL\"}},\"Function\":3}}}}}]}}}",
+          "filters": "[]",
+          "height": 585.00,
+          "width": 340.00,
+          "x": 514.12,
+          "y": 88.24,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"KpiCard\",\"layouts\":[{\"id\":0,\"position\":{\"x\":137.5,\"y\":115,\"z\":2000,\"width\":352.5,\"height\":132.5,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Fields\":[{\"queryRef\":\"health_dataset.Total Patients\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"health_dataset\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Total Patients\"},\"Name\":\"health_dataset.Total Patients\"}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 132.50,
+          "width": 352.50,
+          "x": 137.50,
+          "y": 115.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"SmokingDurationLineChart\",\"layouts\":[{\"id\":0,\"position\":{\"x\":150,\"y\":452.5,\"z\":4000,\"width\":340,\"height\":220,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"health_dataset.Age Group\",\"active\":true}],\"Y\":[{\"queryRef\":\"health_dataset.YOS\"}],\"Y2\":[{\"queryRef\":\"health_dataset.CPD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"health_dataset\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Age Group\"},\"Name\":\"health_dataset.Age Group\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"YOS\"},\"Name\":\"health_dataset.YOS\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"CPD\"},\"Name\":\"health_dataset.CPD\"}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "height": 220.00,
+          "width": 340.00,
+          "x": 150.00,
+          "y": 452.50,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"SmokingGenderRibbonChart\",\"layouts\":[{\"id\":0,\"position\":{\"x\":870,\"y\":131.25,\"z\":6000,\"width\":338.75,\"height\":212.5,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"ribbonChart\",\"projections\":{\"Category\":[{\"queryRef\":\"health_dataset.Smoking_Status\",\"active\":true}],\"Series\":[{\"queryRef\":\"health_dataset.Gender\"}],\"Y\":[{\"queryRef\":\"health_dataset.Total Patients\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"health_dataset\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Smoking_Status\"},\"Name\":\"health_dataset.Smoking_Status\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Gender\"},\"Name\":\"health_dataset.Gender\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Total Patients\"},\"Name\":\"health_dataset.Total Patients\"}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 212.50,
+          "width": 338.75,
+          "x": 870.00,
+          "y": 131.25,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"SmokingStatusDonut\",\"layouts\":[{\"id\":0,\"position\":{\"x\":150,\"y\":267.5,\"z\":3000,\"width\":340,\"height\":185,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"health_dataset.Smoking_Status\",\"active\":true}],\"Y\":[{\"queryRef\":\"health_dataset.Total Patients\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"health_dataset\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Smoking_Status\"},\"Name\":\"health_dataset.Smoking_Status\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Total Patients\"},\"Name\":\"health_dataset.Total Patients\"}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 185.00,
+          "width": 340.00,
+          "x": 150.00,
+          "y": 267.50,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"TitleTextBox\",\"layouts\":[{\"id\":0,\"position\":{\"x\":82.5,\"y\":25,\"z\":0,\"width\":462.5,\"height\":55,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Smoking Health Risk Analysis\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Times New Roman\",\"fontSize\":\"26pt\",\"color\":\"#000000\"}}]}]}}]}}}",
+          "height": 55.00,
+          "width": 462.50,
+          "x": 82.50,
+          "y": 25.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
