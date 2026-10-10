@@ -218,6 +218,7 @@ Smoking Health Risk Analysis Dashboard/
 ├── health_dataset.csv                         # Primary clinical cohort dataset (2,500 rows)
 ├── Image Datasets.csv                         # Dynamic 3D organ image cloud mapping repository
 ├── LICENSE                                    # MIT Open-Source License
+├── Measures and Columns Formula.txt          # DAX measures and calculated column formulas
 ├── Organ.csv                                  # Organ dimension table with cloud icon URLs
 ├── README.md                                  # Comprehensive project documentation
 └── Smoking Health Risk Analysis.pbip          # Microsoft Power BI Project file
