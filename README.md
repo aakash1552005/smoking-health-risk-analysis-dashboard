@@ -221,7 +221,8 @@ Smoking Health Risk Analysis Dashboard/
 ├── Measures and Columns Formula.txt          # DAX measures and calculated column formulas
 ├── Organ.csv                                  # Organ dimension table with cloud icon URLs
 ├── README.md                                  # Comprehensive project documentation
-└── Smoking Health Risk Analysis.pbip          # Microsoft Power BI Project file
+├── Smoking Health Risk Analysis.pbip          # Microsoft Power BI Project file
+└── Smoking Health Risk Analysis.pbix          # Complete Power BI Desktop Report (One-click launch)
 ```
 
 ---
@@ -229,7 +230,7 @@ Smoking Health Risk Analysis Dashboard/
 ## 🚀 Installation & Exploration Guide
 
 ### Prerequisites
-- **Microsoft Power BI Desktop** (November 2023 or newer recommended to support Power BI Project `.pbip` features).
+- **Microsoft Power BI Desktop** (latest version recommended).
 - Internet connection (required for loading cloud-hosted 3D anatomical models and organ icons).
 
 ### Step-by-Step Setup
@@ -240,8 +241,9 @@ Smoking Health Risk Analysis Dashboard/
    cd "smoking-health-risk-analysis-dashboard"
    ```
 
-2. **Launch the Power BI Project:**
-   - Double-click **`Smoking Health Risk Analysis.pbip`** to open the solution in Power BI Desktop.
+2. **Launch the Power BI Dashboard:**
+   - Double-click **`Smoking Health Risk Analysis.pbix`** to open the complete, pre-configured dashboard directly in Power BI Desktop.
+   - Alternatively, developers using Power BI Projects (`.pbip`) can open or export via `File > Save As > Power BI Project (*.pbip)`.
 
 3. **Data Source Verification:**
    - If prompted by Power BI Desktop to locate data sources, verify that the CSV file paths (`health_dataset.csv`, `Organ.csv`, `condition.csv`, `Image Datasets.csv`) point to the repository root directory.
