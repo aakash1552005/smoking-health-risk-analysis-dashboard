@@ -13,6 +13,12 @@
 **An executive-grade Healthcare Business Intelligence & Clinical Analytics Dashboard built in Microsoft Power BI Desktop.**  
 *Stratifying the multi-system physiological impact of tobacco consumption across clinical cohorts, anatomical systems, and metabolic risk indicators.*
 
+<br/>
+
+![Smoking Health Risk Analysis Dashboard](dashboard_preview.png)
+
+<br/>
+
 [Explore Preview](#-executive-dashboard-preview) • [Key Insights](#-key-clinical--business-insights) • [Data Model](#-data-architecture--relational-model) • [DAX Measures](#-advanced-dax-calculations) • [Setup Guide](#-installation--exploration-guide)
 
 ---
@@ -29,10 +35,9 @@ By synthesizing patient behavioral data (**Years of Smoking**, **Cigarettes per 
 
 ## 📸 Executive Dashboard Preview
 
-<div align="center">
-  <img src="dashboard_preview.png" alt="Smoking Health Risk Analysis Dashboard Preview" width="100%" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);" />
-  <p><em>Figure 1: Full-screen interactive Power BI interface featuring dynamic 3D anatomical rendering, multi-variate cohort segmentation, and dynamic variance KPIs.</em></p>
-</div>
+![Smoking Health Risk Analysis Dashboard](dashboard_preview.png)
+
+*Figure 1: Full-screen interactive Power BI interface featuring dynamic 3D anatomical rendering, multi-variate cohort segmentation, and dynamic variance KPIs.*
 
 ---
 
