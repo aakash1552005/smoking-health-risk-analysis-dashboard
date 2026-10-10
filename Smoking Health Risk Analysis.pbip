@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "artifacts": [
+    {
+      "report": {
+        "path": "Smoking Health Risk Analysis.Report"
+      }
+    }
+  ],
+  "settings": {}
+}

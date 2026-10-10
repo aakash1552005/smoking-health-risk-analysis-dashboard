@@ -1,0 +1,10 @@
+# Power BI and Windows System Files
+*.tmp
+~$*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Power BI local caches/backups
+*.pbit.backup
+*.pbix.backup
